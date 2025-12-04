@@ -3,11 +3,12 @@ on: [ push ]
 env:
 #### An dieser Stelle müssen eure persönlichen Umgebungsvariablen eingetragen werden
   # Tipp: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
+  # Tipp: Für mvn package muss -Dcheckstyle.skip=true angehängt werden, da die Unternehmens-pptx nen http aufruf in der metadata hat
   GITHUB_ACCESSTOKEN: ${{ secrets.GITHUB_ACCESSTOKEN }}
 jobs:
   compile:
     name: Compile
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup Java
